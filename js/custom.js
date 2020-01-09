@@ -55,3 +55,9 @@ $(document).ready(function() {
     makeUnijoyEditor('message');
     $('#message').focus();
  });
+
+ function makeEnglish(){
+     activeTextAreaInstance.onkeypress = null;
+     activeTextAreaInstance.onkeydown = null;
+     activeTextAreaInstance.onkeyup = null;
+ }
