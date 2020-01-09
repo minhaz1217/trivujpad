@@ -1,0 +1,19 @@
+td{
+    padding:.2em;
+    font-size:1.3em;
+    cursor: pointer;
+    text-align: center !important;
+    min-width: 5px;
+    min-height: 5px;
+}
+td:hover{
+    background-color: ghostwhite;
+}
+input{
+    font-size:4em;
+}
+.header{
+    font-size:2em;
+    font-weight: 900; 
+    margin-top:2em;
+}

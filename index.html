@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Trivuj Pad</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/custom.css">
+
+
+</head>
+
+<body>
+
+
+    <header>
+        <center>
+            <h1 class="header">TRIVUz PAD</h1>
+        </center>
+    </header>
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-12">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8 text-center">
+
+                <form>
+                    <div class="form-check form-check-inline" style="font-size: 1.4em;">
+                        <label onclick="makeUnijoyEditor('message');" class="form-check-label p-1">
+                            <input
+                                class="form-check-input" type="radio" name="layoutGrp" id=""
+                                value="checkedValue" checked="checked">ইউনিজয়</label>
+                        <label onclick="makeProbhatEditor('message');" class="form-check-label p-1"><input
+                                class="form-check-input" type="radio" name="layoutGrp" id=""
+                                value="checkedValue">প্রভাত</label>
+                        <label onclick="makePhoneticEditor('message');" class="form-check-label p-1"><input
+                                class="form-check-input" type="radio" name="layoutGrp" id=""
+                                value="checkedValue">ফোনেটিক</label>
+                        <label onclick="makePhoneticEditor2('message');" class="form-check-label p-1"><input
+                                class="form-check-input" type="radio" name="layoutGrp" id=""
+                                value="checkedValue">ফোনেটিক-২</label>
+                        <label class="form-check-label"><input class="form-check-input" type="radio" name="layoutGrp"
+                                id="" value="checkedValue">ইংরেজী</label>
+                    </div>
+                </form>
+                <div class="form-group">
+                    <label for=""></label>
+                    <textarea class="form-control" name="" id="message" rows="5" cols="40" id="message"
+                        onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);"
+                        tabindex="3"></textarea>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div id="inlinevkb" style="display: none;" align="center">
+                            <table class="inlinekbtable" border="1" cellpadding="1">
+                                <tbody>
+                                    <tr>
+                                        <td onclick="insertAtCursor('ক');self.focus();">ক</td>
+                                        <td onclick="insertAtCursor('খ');self.focus();">খ</td>
+                                        <td onclick="insertAtCursor('গ');self.focus();">গ</td>
+                                        <td onclick="insertAtCursor('ঘ');self.focus();">ঘ</td>
+                                        <td onclick="insertAtCursor('ঙ');self.focus();">ঙ</td>
+                                        <td onclick="insertAtCursor('চ');self.focus();">চ</td>
+                                        <td onclick="insertAtCursor('ছ');self.focus();">ছ</td>
+                                        <td onclick="insertAtCursor('জ');self.focus();">জ</td>
+                                        <td onclick="insertAtCursor('ঝ');self.focus();">ঝ</td>
+                                        <td onclick="insertAtCursor('ঞ');self.focus();">ঞ</td>
+                                        <td onclick="insertAtCursor('ট');self.focus();">ট</td>
+                                        <td onclick="insertAtCursor('ঠ');self.focus();">ঠ</td>
+                                        <td onclick="insertAtCursor('ড');self.focus();">ড</td>
+                                        <td onclick="insertAtCursor('ঢ়');self.focus();">ঢ়</td>
+                                        <td onclick="insertAtCursor('ণ');self.focus();">ণ</td>
+                                    </tr>
+                                    <tr>
+                                        <td onclick="insertAtCursor('ত');self.focus();">ত</td>
+                                        <td onclick="insertAtCursor('থ');self.focus();">থ</td>
+                                        <td onclick="insertAtCursor('দ');self.focus();">দ</td>
+                                        <td onclick="insertAtCursor('ধ');self.focus();">ধ</td>
+                                        <td onclick="insertAtCursor('ন');self.focus();">ন</td>
+                                        <td onclick="insertAtCursor('প');self.focus();">প</td>
+                                        <td onclick="insertAtCursor('ফ');self.focus();">ফ</td>
+                                        <td onclick="insertAtCursor('ব');self.focus();">ব</td>
+                                        <td onclick="insertAtCursor('ভ');self.focus();">ভ</td>
+                                        <td onclick="insertAtCursor('ম');self.focus();">ম</td>
+                                        <td onclick="insertAtCursor('য');self.focus();">য</td>
+                                        <td onclick="insertAtCursor('র');self.focus();">র</td>
+                                        <td onclick="insertAtCursor('ল');self.focus();">ল</td>
+                                        <td onclick="insertAtCursor('শ');self.focus();">শ</td>
+                                        <td onclick="insertAtCursor('ষ');self.focus();">ষ</td>
+                                    </tr>
+                                    <tr>
+                                        <td onclick="insertAtCursor('স');self.focus();">স</td>
+                                        <td onclick="insertAtCursor('হ');self.focus();">হ</td>
+                                        <td onclick="insertAtCursor('ক্ষ');self.focus();">ক্ষ</td>
+                                        <td onclick="insertAtCursor('ড়');self.focus();">ড়</td>
+                                        <td onclick="insertAtCursor('ঢ়');self.focus();">ঢ়</td>
+                                        <td onclick="insertAtCursor('য়');self.focus();">য়</td>
+                                        <td onclick="insertAtCursor('ৎ');self.focus();">ৎ</td>
+                                        <td onclick="insertAtCursor('ং');self.focus();">ং</td>
+                                        <td onclick="insertAtCursor('ঃ');self.focus();">ঃ</td>
+                                        <td onclick="insertAtCursor('ঁ');self.focus();">ঁ</td>
+                                        <td onclick="insertAtCursor('\u0964');self.focus();">।</td>
+                                        <td onclick="insertAtCursor('\u0965');self.focus();">॥</td>
+                                        <td onclick="insertAtCursor('\u09f3');self.focus();">৳</td>
+                                        <td colspan="2"
+                                            onclick="insertAtCursor('\u09CD');insertAtCursor('র'); self.focus();"
+                                            align="center">র-ফলা‌‌‌</td>
+                                    </tr>
+                                    <tr>
+                                        <td onclick="insertAtCursor('অ');self.focus();">অ</td>
+                                        <td onclick="insertAtCursor('আ');self.focus();">আ</td>
+                                        <td onclick="insertAtCursor('ই');self.focus();">ই</td>
+                                        <td onclick="insertAtCursor('ঈ');self.focus();">ঈ</td>
+                                        <td onclick="insertAtCursor('উ');self.focus();">উ</td>
+                                        <td onclick="insertAtCursor('ঊ');self.focus();">ঊ</td>
+                                        <td onclick="insertAtCursor('ঋ');self.focus();">ঋ</td>
+                                        <td onclick="insertAtCursor('এ');self.focus();">এ</td>
+                                        <td onclick="insertAtCursor('ঐ');self.focus();">ঐ</td>
+                                        <td onclick="insertAtCursor('ও');self.focus();">ও</td>
+                                        <td onclick="insertAtCursor('ঔ');self.focus();">ঔ</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td colspan="2"
+                                            onclick="insertAtCursor('\u09CD');insertAtCursor('\u09AF');self.focus();"
+                                            align="center">য-ফলা</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td onclick="insertAtCursor('া');self.focus();">া</td>
+                                        <td onclick="insertAtCursor('ি');self.focus();">ি</td>
+                                        <td onclick="insertAtCursor('ী');self.focus();">ী</td>
+                                        <td onclick="insertAtCursor('ু');self.focus();">ু</td>
+                                        <td onclick="insertAtCursor('ূ');self.focus();">ূ</td>
+                                        <td onclick="insertAtCursor('ৃ');self.focus();">ৃ</td>
+                                        <td onclick="insertAtCursor('ে');self.focus();">ে</td>
+                                        <td onclick="insertAtCursor('ৈ');self.focus();">ৈ</td>
+                                        <td onclick="insertAtCursor('ো');self.focus();">ো</td>
+                                        <td onclick="insertAtCursor('ৌ');self.focus();">ৌ</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td colspan="2"
+                                            onclick="insertAtCursor('র');insertAtCursor('\u09CD');self.focus();"
+                                            align="center">
+                                            রেফ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td onclick="insertAtCursor('০');self.focus();">০</td>
+                                        <td onclick="insertAtCursor('১');self.focus();">১</td>
+                                        <td onclick="insertAtCursor('২');self.focus();">২</td>
+                                        <td onclick="insertAtCursor('৩');self.focus();">৩</td>
+                                        <td onclick="insertAtCursor('৪');self.focus();">৪</td>
+                                        <td onclick="insertAtCursor('৫');self.focus();">৫</td>
+                                        <td onclick="insertAtCursor('৬');self.focus();">৬</td>
+                                        <td onclick="insertAtCursor('৭');self.focus();">৭</td>
+                                        <td onclick="insertAtCursor('৮');self.focus();">৮</td>
+                                        <td onclick="insertAtCursor('৯');self.focus();">৯</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td colspan="2" onclick="insertAtCursor('\u200C');self.focus();"
+                                            title="Zero With Non Join" align="center">ZWNJ</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" onclick="insertAtCursor(' ');self.focus();">স্পেসবার</td>
+                                        <td colspan="4" onclick="insertAtCursor('\n');self.focus();">নতুন লাইন</td>
+                                        <td colspan="5" onclick="insertAtCursor('\u09CD');self.focus();">যুক্ত
+                                            করুন/হসন্ত</td>
+                                        <td colspan="2" onclick="insertAtCursor('\u200D');self.focus();"
+                                            title="Zero With Join">ZWJ</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <a href="#" onclick="$('#inlinevkb').toggle();" id="linkid"
+                            class="btn btn-success mt-4">ভার্চুয়াল কীবোর্ড</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2"></div>
+        </div>
+
+        <script src="/js/jquery-slim.min.js" type="text/javascript"></script>
+        <script src="/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="/js/popper.min.js" type="text/javascript"></script>
+        <script src="/js/custom.js" type="text/javascript"></script>
+
+        <script src="/js/probhatunicode.js" type="text/javascript"></script>
+        <script src="/js/unijoy.js" type="text/javascript"></script>
+        <script src="/js/phonetic_int.js" type="text/javascript"></script>
+        <script src="/js/phoneticunicode.js" type="text/javascript"></script>
+        <script src="/js/custom.js" type="text/javascript"></script>
+</body>
+
+</html>
