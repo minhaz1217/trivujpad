@@ -13,10 +13,10 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           tags: |
-            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}.{{minor}}.{{patch}}
 
       - name: Build the image
         uses: docker/build-push-action@v6
         with:
           push: false
-          tags: minhaz1217/trivujpad:1.0.0
+          tags: ${{ steps.meta.outputs.tags }}
