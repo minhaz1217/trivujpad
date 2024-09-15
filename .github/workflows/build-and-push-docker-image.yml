@@ -1,6 +1,10 @@
 name: Build Docker Image
 run-name: ${{ github.actor }} is Building with docker
-on: [push]
+on:
+  push:
+    tags:        
+      - '*'   # Push events to every tag not containing /
+
 jobs:
   build-docker-image:
     runs-on: ubuntu-latest
@@ -15,14 +19,10 @@ jobs:
           images: name/app
           tags: |
             type=semver,event=push tag,pattern={{major}}.{{minor}}.{{patch}}
-      # type=ref,event=branch
-      # type=ref,event=pr
-      # type=semver,pattern={{version}}
-      # type=raw,enable=true,priority=200,prefix=,suffix=,value=RANDOM_TAG
 
-      # - name: Build the image
-      #   uses: docker/build-push-action@v6
-      #   with:
-      #     push: false
-      #     tags: ${{ steps.meta.outputs.tags }}
-      #     labels: ${{ steps.meta.outputs.labels }}
+      - name: Build the image
+        uses: docker/build-push-action@v6
+        with:
+          push: false
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
