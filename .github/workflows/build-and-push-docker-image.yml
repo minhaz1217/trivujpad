@@ -37,7 +37,7 @@ jobs:
 
       - name: Name of the image
         run: |
-          echo ${{steps.docker-build-push.outputs.labels.org.opencontainers.image.version }}
+          echo Image name ${{ fromJSON(steps.docker-build-push.outputs.metadata)['image.name'] }}
           echo Next 1
           echo ${{steps.docker-build-push.outputs.manifest.org.opencontainers.image.version }}
           echo Next 2
