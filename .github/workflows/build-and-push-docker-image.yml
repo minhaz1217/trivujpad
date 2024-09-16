@@ -37,5 +37,6 @@ jobs:
 
       - name: Name of the image
         run: |
-          echo ${{steps.docker-build-push.outputs.imageFullName }}
+          echo ${{steps.docker-build-push.outputs.manifest:org.opencontainers.image.version }}
+          echo Next
           echo ${{ steps.docker-build-push.outputs }}
