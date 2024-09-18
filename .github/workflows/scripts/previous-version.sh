@@ -4,6 +4,8 @@ echo $LATEST_TAG
 if [ -z $LATEST_TAG ]; then
   LATEST_TAG="0.0.0"
   echo "$LATEST_TAG"
+  echo "Can't find last version"
+  exit 1
 fi
 
 if [[ $LATEST_TAG =~ [0-9]+\.[0-9]+\.[0-9]+$ ]]; then
