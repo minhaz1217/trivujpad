@@ -13,9 +13,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: debug
-        run: git describe --tags `git rev-list --tags --max-count=1`
-        
       - name: Get Previous Version
         id: get-previous-version
         run: bash ./.github/workflows/scripts/previous-version.sh
@@ -23,7 +20,18 @@ jobs:
       - name: Generate Next Version
         id: get-next-version
         run: bash ./.github/workflows/scripts/next-version.sh -p ${{steps.get-previous-version.outputs.PREVIOUS_VERSION}}
-        
+      
+      - name: Create Release Tag
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{steps.generate-next-version.outputs.NEXT_VERSION}}
+          release_name: Release ${{ steps.generate-next-version.outputs.NEXT_VERSION }}
+          draft: false
+          prerelease: false
+
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v5
@@ -42,14 +50,14 @@ jobs:
         uses: docker/build-push-action@v6
         id: docker-build-push
         with:
-          push: false
+          push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Name of the image
         run: |
           echo Image name ${{ fromJSON(steps.docker-build-push.outputs.metadata)['image.name'] }}
-          echo Next 1
-          echo ${{steps.docker-build-push.outputs.manifest.org.opencontainers.image.version }}
-          echo Next 2
-          echo ${{ steps.docker-build-push.outputs }}
+        # echo Next 1
+        # echo ${{steps.docker-build-push.outputs.manifest.org.opencontainers.image.version }}
+        # echo Next 2
+        # echo ${{ steps.docker-build-push.outputs }}
