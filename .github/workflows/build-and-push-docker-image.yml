@@ -14,8 +14,8 @@ jobs:
 
       - name: File
         run: |
-          ls -l
-          ls -l ./git
+          ls -a
+          ls -a ./.git
 
       - name: Get Previous Version
         id: get-previous-version
