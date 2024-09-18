@@ -10,8 +10,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: debug
         run: git describe --tags `git rev-list --tags --max-count=1`
+        
       - name: Get Previous Version
         id: get-previous-version
         run: bash ./.github/workflows/scripts/previous-version.sh
