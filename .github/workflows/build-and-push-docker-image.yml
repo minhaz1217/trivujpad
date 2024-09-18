@@ -2,8 +2,7 @@ name: Build Docker Image
 run-name: ${{ github.actor }} is Building with docker
 on:
   push:
-    tags:
-      - "*" # Push events to every tag not containing /
+    branches: [master]
 
 jobs:
   build-docker-image:
@@ -12,18 +11,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: File
-        run: |
-          ls -a
-          ls -a ./.github
-
       - name: Get Previous Version
         id: get-previous-version
         run: bash ./.github/workflows/scripts/previous-version.sh
       
       - name: Generate Next Version
-        id: generate-next-version
-        run: bash ./.github/workflows/scripts/next-version.sh -m ${{steps.get-previous-version.outputs.PREVIOUS_VERSION}}
+        id: get-next-version
+        run: bash ./.github/workflows/scripts/next-version.sh -p ${{steps.get-previous-version.outputs.PREVIOUS_VERSION}}
         
       - name: Docker meta
         id: meta
@@ -31,8 +25,7 @@ jobs:
         with:
           images: minhaz1217/minhaz1217
           tags: |
-            type=semver,event=push tag,pattern={{major}}.{{minor}}.{{patch}},prefix=trivujpad-
-            type=raw,enable=true,priority=200,prefix=trivujpad-,value=latest
+            type=raw,enable=true,priority=200,prefix=trivujpad-,value=${{steps.get-next-version.outputs.NEXT_VERSION}}
 
       - name: Login to Docker Hub
         uses: docker/login-action@v3
@@ -44,7 +37,7 @@ jobs:
         uses: docker/build-push-action@v6
         id: docker-build-push
         with:
-          push: true
+          push: false
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
