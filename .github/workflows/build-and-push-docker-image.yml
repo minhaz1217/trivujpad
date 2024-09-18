@@ -15,15 +15,15 @@ jobs:
       - name: File
         run: |
           ls -a
-          ls -a ./.git
+          ls -a ./.github
 
       - name: Get Previous Version
         id: get-previous-version
-        run: bash ./.git/workflows/scripts/previous-version.sh
+        run: bash ./.github/workflows/scripts/previous-version.sh
       
       - name: Generate Next Version
         id: generate-next-version
-        run: bash ./.git/workflows/scripts/next-version.sh -m ${{steps.get-previous-version.outputs.PREVIOUS_VERSION}}
+        run: bash ./.github/workflows/scripts/next-version.sh -m ${{steps.get-previous-version.outputs.PREVIOUS_VERSION}}
         
       - name: Docker meta
         id: meta
