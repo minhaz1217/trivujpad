@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  trivujpad:
+    build: .
+    container_name: trivujpad
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 100M
+          cpus: 1
+        reservations:
+          memory: 100M
+
+    networks:
+      - minhazul-net
+
+networks:
+  minhazul-net:
+    external: true
