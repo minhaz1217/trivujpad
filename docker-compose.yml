@@ -9,7 +9,7 @@ services:
           memory: 50M
           cpus: '0.50'
         reservations:
-          memory: 100M
+          memory: 50M
 
     networks:
       - minhazul-net
